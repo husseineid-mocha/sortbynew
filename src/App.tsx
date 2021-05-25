@@ -64,8 +64,8 @@ function App() {
       document.querySelectorAll(".array-bar").forEach((array: any) => {
         array.style.backgroundColor = arrayBarColor;
       });
-      document.querySelector<any>(".MuiSelect-select").style.color = fontColor;
-      document.querySelector<any>(".MuiSelect-icon").style.color = fontColor;
+      // document.querySelector<any>(".MuiSelect-select").style.color = fontColor;
+      // document.querySelector<any>(".MuiSelect-icon").style.color = fontColor;
     }
   }, [
     theme,

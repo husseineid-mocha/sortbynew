@@ -4,17 +4,14 @@ import { useArray } from "../../context/ArrayContext";
 import { useTheme } from "../../context/ThemeContext";
 import { Select, MenuItem } from "@material-ui/core";
 import { withStyles } from "@material-ui/styles";
+import React from "react";
 
-const fontColor = document
-  .querySelector<any>(":root")
-  .getPropertyValue("--font-color");
-// const fontColor = document.querySelector.getPropertyValue("--font-color");
 const CustomSelect = withStyles({
   select: {
-    color: fontColor,
+    color: "red",
   },
   icon: {
-    color: fontColor,
+    color: "red",
   },
 })(Select);
 

@@ -8,11 +8,16 @@ import {
   insertionSortAnimations,
   quickSortAnimations,
   selectionSortAnimations,
-} from "../SortingAlgorithms/";
+} from "../SortingAlgorithms";
 import "./Navbar.css";
 
-const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
-  const [selectedButton, setSelectedButton] = useState();
+const Navigation = ({
+  setLoading,
+  setShowHelper,
+  sorting,
+  setSorting,
+}: any) => {
+  const [selectedButton, setSelectedButton] = useState<any>();
   const { array, resetArray, animationSpeed } = useArray();
   const { selectedArrayColor, arrayBarColor, sortedColor } = useTheme();
 
@@ -46,8 +51,10 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
     // eslint-disable-next-line
   }, [sorting, selectedButton]);
 
-  const animator = (animations) => {
-    const arrayBars = document.getElementsByClassName("array-bar");
+  const animator = (animations: any) => {
+    const arrayBars: HTMLElement[] = Array.from(
+      document.getElementsByClassName("array-bar") as any
+    );
     for (let i = 0; i < animations.length; i++) {
       // color change animations occur at index 0 and 2 of every triplet in animations array
       const isColorChange = i % 3 === 0 || i % 3 === 2;
@@ -90,7 +97,9 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
 
   const resetState = () => {
     // reset bars to original position before sorting
-    const arrayBars = document.querySelectorAll(".array-bar");
+    const arrayBars: HTMLElement[] = document.querySelectorAll(
+      ".array-bar"
+    ) as any;
     for (let i = 0; i < arrayBars.length; i++) {
       arrayBars[i].style.height = `${array[i]}px`;
       arrayBars[i].style.backgroundColor = arrayBarColor;
@@ -104,7 +113,7 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
 
   // sliced array is passed into each sorting algorithm to preserve the original array since the input array will be mutated
 
-  const mergeSort = (e) => {
+  const mergeSort = (e: any) => {
     resetState();
     setSelectedButton(e.target);
     setTimeout(() => {
@@ -114,7 +123,7 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
     }, 300);
   };
 
-  const bubbleSort = (e) => {
+  const bubbleSort = (e: any) => {
     resetState();
     setSelectedButton(e.target);
     setTimeout(() => {
@@ -124,7 +133,7 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
     }, 300);
   };
 
-  const insertionSort = (e) => {
+  const insertionSort = (e: any) => {
     resetState();
     setSelectedButton(e.target);
     setTimeout(() => {
@@ -134,7 +143,7 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
     }, 300);
   };
 
-  const quickSort = (e) => {
+  const quickSort = (e: any) => {
     resetState();
     setSelectedButton(e.target);
     setTimeout(() => {
@@ -144,7 +153,7 @@ const Navigation = ({ setLoading, setShowHelper, sorting, setSorting }) => {
     }, 300);
   };
 
-  const selectionSort = (e) => {
+  const selectionSort = (e: any) => {
     resetState();
     setSelectedButton(e.target);
     setTimeout(() => {
