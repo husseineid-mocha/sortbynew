@@ -1,12 +1,16 @@
 import { useContext, createContext, useState } from "react";
 
-export const ThemeContext = createContext();
+export const ThemeContext = createContext<any>(null);
 
 export const useTheme = () => {
   return useContext(ThemeContext);
 };
 
-export const ThemeProvider = ({ children }) => {
+type Props = {
+  children: any;
+};
+
+export const ThemeProvider: React.FC = ({ children }) => {
   const [theme, setTheme] = useState("default");
 
   const themes = {
@@ -83,7 +87,7 @@ export const ThemeProvider = ({ children }) => {
     disabledButtonColor,
     buttonHoverColor,
     buttonFontColor,
-  } = themes[theme];
+  } = (themes as any)[theme];
 
   return (
     <ThemeContext.Provider

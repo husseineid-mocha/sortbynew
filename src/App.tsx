@@ -34,7 +34,7 @@ function App() {
 
   useEffect(() => {
     resetArray();
-    document.querySelectorAll(".array-bar").forEach((array: any) => {
+    document.querySelectorAll<HTMLElement>(".array-bar").forEach((array) => {
       array.style.backgroundColor = arrayBarColor;
     });
     // eslint-disable-next-line
@@ -45,7 +45,7 @@ function App() {
       if (localStorage.getItem("theme"))
         setTheme(JSON.parse(localStorage.getItem("theme") as string));
       setIsLoaded(true);
-      document.querySelectorAll(".array-bar").forEach((array: any) => {
+      document.querySelectorAll<HTMLElement>(".array-bar").forEach((array) => {
         array.style.backgroundColor = arrayBarColor;
       });
     }
@@ -61,7 +61,7 @@ function App() {
       root.style.setProperty("--array-bar-color", arrayBarColor);
       root.style.setProperty("--button-hover", buttonHoverColor);
       root.style.setProperty("--button-font-color", buttonFontColor);
-      document.querySelectorAll(".array-bar").forEach((array: any) => {
+      document.querySelectorAll<HTMLElement>(".array-bar").forEach((array) => {
         array.style.backgroundColor = arrayBarColor;
       });
       // document.querySelector<any>(".MuiSelect-select").style.color = fontColor;

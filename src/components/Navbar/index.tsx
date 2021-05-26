@@ -32,6 +32,7 @@ const Navigation = ({
         input.disabled = true;
         input.style.cursor = "initial";
       });
+      //will still highlight selected algorithm so we know which one is running
       selectedButton.classList.add("selected");
       setShowHelper(false);
     } else {
@@ -114,10 +115,15 @@ const Navigation = ({
   // sliced array is passed into each sorting algorithm to preserve the original array since the input array will be mutated
 
   const mergeSort = (e: any) => {
+    // reset the state in case it's been sorted
     resetState();
-    setSelectedButton(e.target);
+    // this allows us to display the algorithm that is currently running (useEffect above)
+    setSelectedButton(e.target); //e.target passes in the entire element (allows us to use the classList.add above)
     setTimeout(() => {
+      //turns off loading animation
       setLoading(false);
+      //we're slicing the array because the algorithms mutate the array (otherwise it tries to sort an array that was a state behind)
+      //this slice also helps keep us use the original array for the reset without problem
       const animations = mergeSortAnimations(array.slice());
       animator(animations);
     }, 300);

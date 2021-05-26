@@ -6,12 +6,14 @@ import { Select, MenuItem } from "@material-ui/core";
 import { withStyles } from "@material-ui/styles";
 import React from "react";
 
+// const root = document.querySelector(":root");
+// const fontColor = getComputedStyle(root).getPropertyValue("--font-color") as any;
 const CustomSelect = withStyles({
   select: {
-    color: "red",
+    color: "white",
   },
   icon: {
-    color: "red",
+    color: "white",
   },
 })(Select);
 

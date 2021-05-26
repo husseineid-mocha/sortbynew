@@ -54,6 +54,7 @@
 }
 
 .array-bar {
+    border-radius: 5px;
     display: flex;
     margin: 0px 1px;
     background-color: var(--array-bar-color);
