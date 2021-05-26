@@ -15,7 +15,7 @@ export const ThemeProvider: React.FC = ({ children }) => {
 
   const themes = {
     default: {
-      backgroundColor: "white",
+      backgroundColor: "#fafafa",
       navBarColor: "black",
       arrayBarColor: "black",
       selectedArrayColor: "red",

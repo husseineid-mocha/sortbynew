@@ -40,66 +40,70 @@ const SortingVisualizer = ({ loading, showHelper }: Props) => {
           {/* <BeatLoader color={"white"} /> */}
         </div>
       )}
-      <div className="array-option-container">
-        <div className="array-size-speed">
-          <div className="array-size-container">
-            <label>Size</label>
-            <input
+      <div className="array-option-bar-container">
+        <div className="array-option-container">
+          <div className="array-size-speed">
+            <div className="array-size-container">
+              <label>Size</label>
+              <input
+                onChange={(e) => {
+                  setArrayLength(e.target.value);
+                }}
+                type="range"
+                min="10"
+                max="100"
+                step="10"
+                value={array.length}
+              ></input>
+            </div>
+            <div className="array-speed-container">
+              <label>Speed</label>
+              <input
+                onChange={(e) => setAnimationSpeed(e.target.value)}
+                type="range"
+                min="-153"
+                max="-3"
+                step="25"
+                value={animationSpeed}
+              ></input>
+            </div>
+          </div>
+          {showHelper && (
+            <div className="helper-container">
+              <div>Click on a sorting button to begin!</div>
+            </div>
+          )}
+          <div className="array-theme">
+            <label>Theme</label>
+            <CustomSelect
               onChange={(e) => {
-                setArrayLength(e.target.value);
+                localStorage.setItem("theme", JSON.stringify(e.target.value));
+                setTheme(e.target.value);
               }}
-              type="range"
-              min="10"
-              max="100"
-              step="10"
-              value={array.length}
-            ></input>
-          </div>
-          <div className="array-speed-container">
-            <label>Speed</label>
-            <input
-              onChange={(e) => setAnimationSpeed(e.target.value)}
-              type="range"
-              min="-153"
-              max="-3"
-              step="25"
-              value={animationSpeed}
-            ></input>
+              value={theme}
+            >
+              <MenuItem value="default">Default</MenuItem>
+              <MenuItem value="dracula">Dracula</MenuItem>
+              <MenuItem value="nautilus">Nautilus</MenuItem>
+              <MenuItem value="monokai">Monokai</MenuItem>
+              <MenuItem value="phantom">Phantom</MenuItem>
+            </CustomSelect>
           </div>
         </div>
-        {showHelper && (
-          <div className="helper-container">
-            <div>Click on a sorting button to begin!</div>
+        <div className="array-container">
+          <div className="array-bar-container">
+            {array.map((value: number, idx: number) => (
+              <div
+                className="array-bar"
+                key={idx}
+                style={{
+                  width: `${Math.floor(window.innerWidth / arrayLength)}px`,
+                  height: `${value}px`,
+                }}
+              ></div>
+            ))}
           </div>
-        )}
-        <div className="array-theme">
-          <label>Theme</label>
-          <CustomSelect
-            onChange={(e) => {
-              localStorage.setItem("theme", JSON.stringify(e.target.value));
-              setTheme(e.target.value);
-            }}
-            value={theme}
-          >
-            <MenuItem value="default">Default</MenuItem>
-            <MenuItem value="dracula">Dracula</MenuItem>
-            <MenuItem value="nautilus">Nautilus</MenuItem>
-            <MenuItem value="monokai">Monokai</MenuItem>
-            <MenuItem value="phantom">Phantom</MenuItem>
-          </CustomSelect>
         </div>
-      </div>
-      <div className="array-container">
-        {array.map((value: number, idx: number) => (
-          <div
-            className="array-bar"
-            key={idx}
-            style={{
-              width: `${Math.floor(window.innerWidth / arrayLength)}px`,
-              height: `${value}px`,
-            }}
-          ></div>
-        ))}
       </div>
     </>
   );
