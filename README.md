@@ -13,8 +13,7 @@ An interactive way to visualize popular sorting algorithms!
 ## Features
    ### Theme Chooser
       React context was used to create a list of themes which change the display colors of the application
-      [colors](ReadMeImages/themes.png)
+      ![colors](ReadMeImages/themes.png)
  
    ### Adjustable animation speed and array size
-   <br>
- <img src="https://media.giphy.com/media/eW2wYR9duzwSw5kxaZ/giphy.gif" />
+      ![sizeAndSpeed](ReadMeImages/sizeAndSpeed.png)
