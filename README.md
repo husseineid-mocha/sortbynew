@@ -2,7 +2,7 @@
 
 An interactive way to visualize popular sorting algorithms!
 
-[gif](ReadMeImages/sortbynew.gif)
+![gif](ReadMeImages/sortbynew.gif)
 
 ### Technologies
   * [React](https://reactjs.org/)
